@@ -1,0 +1,29 @@
+{% extends 'bicycles/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'salepost_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+                    <p> {{ post.owner }} </p>
+                    <p> {{ post.make }} </p>
+                    <p> {{ post.model }} </p>
+                    <p> {{ post.type }} </p>
+                    <p> {{ post.size }} </p>
+                    <p> {{ post.age }} </p>
+                    <p> {{ post.original_price }} </p>
+                    <p> {{ post.quoted_price }} </p>
+                    <p> {{ post.city }} </p>
+                    <p> {{ post.state }} </p>
+                    <p> {{ post.shipping }} </p>
+                    <p> {{ post.bill }} </p>
+                    <p> {{ post.negotiable }} </p>
+                    <p> {{ post.other_details|linebreaksbr }} </p>
+    </div>
+{% endblock %}
